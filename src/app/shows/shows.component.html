@@ -1,15 +1,15 @@
 <div class="row d-flex">
     <div class="col-2 col-sm-3 col-md-4"></div>
     <div class="col-8 col-sm-6 col-md-4">
-      <form class="d-flex display-column m-5" #ref="ngForm" (ngSubmit)='add(ref)'>
-          <input type="text" name="Name" placeholder="search by name" class="form-control" id="id1" ngModel>
+      <form class="d-flex display-column m-5" #ref="ngForm">
+          <input type="text" name="Name" placeholder="search by name" class="form-control" id="id1" [(ngModel)]="searchTerm">
           <button class="btn btn-success float-end" type="submit"><i class="fas fa-search"></i></button>
       </form>
     </div>
     </div>
     <div class="container text-center">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5">
-        <div class="col" *ngFor="let p of MovieList | search: searchTerm">
+        <div class="col" *ngFor="let p of MovieList | paginate: { itemsPerPage:3,currentPage: page,totalItems:totalLength}| search: searchTerm">
           <div class="card bg-dark">
             <div class="card-header text-white">{{p.rank}}</div>
             <div class="card-body text-white">
@@ -26,4 +26,5 @@
           </div>
           </div> 
       </div>
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>

@@ -12,6 +12,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SearchPipe } from './search.pipe';
 import { FormsModule } from '@angular/forms';
 import { MoviefilterPipe } from './moviefilter.pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -30,7 +31,7 @@ import { MoviefilterPipe } from './moviefilter.pipe';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

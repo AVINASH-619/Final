@@ -12,10 +12,10 @@ export class LoginComponent implements OnInit {
   ch:number=1;
   ngOnInit(): void {
   }
-  GoTo():void{
+  goToRegister():void{
   this.ch=0;
   }
-  Go():void
+  goToLogin():void
   {
     this.ch=1;
   }

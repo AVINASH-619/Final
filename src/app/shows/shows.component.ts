@@ -11,6 +11,8 @@ import { WatchService } from '../watch.service';
 export class ShowsComponent implements OnInit {
   searchTerm:string;
   MovieList:any[]=[];
+  page:number=1;
+  totalLength:any;
   constructor(private S1:ShowsdataService,private W1:WatchService) { }
   ngOnInit(): void 
   {
@@ -19,7 +21,7 @@ export class ShowsComponent implements OnInit {
     data=>
     {
       this.MovieList=data.items;
-      console.log(this.MovieList);
+      this.totalLength=this.MovieList.length;
     },
     err=>
     {
@@ -48,10 +50,5 @@ export class ShowsComponent implements OnInit {
    let ind=this.W1.WatchList.indexOf(p);
     this.W1.WatchList.splice(ind,1);
   }
-  add(ref:any)
-  {
-    let p=ref.value;
-    this.searchTerm=p.Name;
-    console.log(this.searchTerm);
-  }
+  
 }
